@@ -24,9 +24,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <log/log.h>
+// #include <log/log.h>
 
 #include <tinyalsa/asoundlib.h>
+
+#define LOG_ALWAYS_FATAL(fmt, ...) printf(fmt, ##__VA_ARGS__)
+#define ALOGE(fmt, ...) printf(fmt, ##__VA_ARGS__)
+#define ALOGD(fmt, ...) printf(fmt, ##__VA_ARGS__)
+#define ALOGV(fmt, ...) printf(fmt, ##__VA_ARGS__)
 
 #define BUF_SIZE 1024
 #define MIXER_XML_PATH "/system/etc/mixer_paths.xml"
