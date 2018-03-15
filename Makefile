@@ -12,6 +12,7 @@ AR = $(CROSS_COMPILE)ar
 LD = $(CROSS_COMPILE)gcc
 
 WARNINGS = -Wall -Wextra -Werror -Wfatal-errors
+INCLUDE_DIRS := -Iinclude/ $(INCLUDE_DIRS)
 override CFLAGS := $(WARNINGS) $(INCLUDE_DIRS) -fPIC $(CFLAGS)
 
 LIBS=-ltinyalsa -lexpat
