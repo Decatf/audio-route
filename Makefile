@@ -14,6 +14,7 @@ LD = $(CROSS_COMPILE)gcc
 WARNINGS = -Wall -Wextra -Werror -Wfatal-errors
 override CFLAGS := $(WARNINGS) $(INCLUDE_DIRS) -fPIC $(CFLAGS)
 
+LIBS=-ltinyalsa -lexpat
 
 OBJECTS = audio_route.o
 
@@ -34,7 +35,7 @@ libaudioroute.so.1: libaudioroute.so.1.1.1
 	ln -sf $< $@
 
 libaudioroute.so.1.1.1: $(OBJECTS)
-	$(LD) $(LDFLAGS) -shared -Wl,-soname,libaudioroute.so.1 $^ -o $@
+	$(LD) $(LIBS) $(LDFLAGS) -shared -Wl,-soname,libaudioroute.so.1 $^ -o $@
 
 
 .PHONY: clean
